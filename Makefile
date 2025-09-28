@@ -32,7 +32,7 @@ pg:
 	@podman image exists postgres && exit || \
 	podman create --name postgres -p 5432:5432 postgres:latest
 	@podman container exists postgres && exit || \
-	@podman create \
+	podman create \
 	--network $(network) \
 	--name postgres \
 	-e POSTGRES_PASSWORD=$(PG_PWD) \
