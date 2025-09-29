@@ -78,8 +78,9 @@ async def create_invoice(file: UploadFile, session: session):
             invoice_metadata.invoice_id =invoice.id
             session.add(invoice_metadata)
             await session.commit()
-        except Exception:
+        except Exception as e:
             await session.rollback()
+            raise HTTPException(status_code=500, detail=e)
 
     return invoice
 
