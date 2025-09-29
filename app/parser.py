@@ -4,7 +4,7 @@ from lxml import etree
 class UBLInvoiceParser:
 
     def __init__(self, namespaces: list, fields: dict) -> None:
-        self.namespaces =namespaces
+        self.namespaces = namespaces
         self.fields = fields
 
     def _get_element(
